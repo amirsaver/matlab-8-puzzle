@@ -4,6 +4,7 @@ classdef puzzle
     
     properties
         state
+        parent
     end
     
     methods

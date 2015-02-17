@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function output = pgenerator()
 
 
@@ -82,11 +83,7 @@ function output = pgenerator()
                 depth = depth + 1;
             end
         end
-
-
     end  
 
     output = p1.state;
-
 end
-
