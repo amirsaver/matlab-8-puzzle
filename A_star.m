@@ -1,4 +1,6 @@
-% function A*(start, goal):
+
+function A_star(starting_node)
+goal = [1,2,3,4,5,6,7,8,9]
 % closed = {}
 % open = {}
 % tree = {}
@@ -20,8 +22,9 @@
 %             g_score[neighbor] = tentative_g_score
 %             f_score[neighbor] = g_score[neighbor] + heuristic(neighbor, goal)
 % return failure
-% 
-% function heuristic(node, goal)
-%     return the manhattan distance
+end
 
+function dist = heuristic(node, goal)
+%     return the manhattan distance
+end
        

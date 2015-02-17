@@ -2,9 +2,9 @@
 % Attempts to find the goal state [123456789].
 % -- arguments -- 
 % start_node: the initial state of the 8-puzzle.
-function BFS(start_node)
+function result = BFS(start_node)
 tic %start timer
-goal = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+goal = 1:9;
 % starting node is the initial state, it has no parent since it is the
 % 'root' and has been visitied1
 start_node.parent = [];
@@ -26,6 +26,7 @@ while ~isempty(queue)
     if node.state == goal
         disp(reconstruct_path(node))
         toc % display time elapsed
+        result = true; %%%% DEBUG %%%%
         return
     else
         toc %%%% DEBUG %%%%
@@ -58,6 +59,8 @@ while ~isempty(queue)
         disp(queue) %%%% DEBUG %%%%
     end % if end
 end % while end
+result = false; %%%% DEBUG -- failed BFS if returns 0 %%%%
+return 
 end % function ed
 
                       
