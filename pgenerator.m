@@ -79,9 +79,6 @@ while depth <= max_depth
                 depth = depth + 1;
             end
         end
-    end  
-
-
-end
+end %while end  
     p1.state
 end %function end
