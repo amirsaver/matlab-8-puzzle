@@ -4,7 +4,7 @@
 count = 0
 for n = 5:29
     for m = 1:4
-        pgenerator(n)
+        puzzle = pgenerator(n)
         count = count + 1
     end
 end
