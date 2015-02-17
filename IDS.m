@@ -4,7 +4,7 @@
 function node = DLS(starting_node, goal_state, depth)
 %     if depth >= 0
 if depth >= 0
-    if node == goal_state
+    if(isequal(node.state,goal_state))
         return
     end
 else
@@ -18,12 +18,12 @@ node = DLS(child, goal_state, depth - 1);
 end
 
 function IDS(starting_node)
-goal = 1:9;
+goal = int8(1:9);
 for i = 1:30 % depth shouldn't go past 30 due to generation of starting states
     limit = i;
     return_node = DLS(starting_node, limit);
-    if return_node.state == goal
-        reconstruct_path(return_node)
+    if(isequal(return_node.state,goal))
+        reconstruct_path(return_node);
         return
     end
 end

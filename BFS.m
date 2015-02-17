@@ -4,15 +4,13 @@
 % start_node: the initial state of the 8-puzzle.
 function BFS(start_node)
 tic %start timer
-goal = 1:9;
+goal = int8(1:9);
 % starting node is the initial state, it has no parent since it is the
-% 'root' and has been visitied1
+% 'root' and has been visitied
 start_node.parent = [];
     
-% queue q = x
 queue = start_node;
-visited = [];
-% while !q.empty? 
+visited = zeros(100,9,int8);%preallocate a 100x9 matrix of ints
 visited_index = 1;
 while ~isempty(queue)
     % pop first element off from queue
