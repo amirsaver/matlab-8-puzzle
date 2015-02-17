@@ -7,7 +7,6 @@
 % randi(4) returns a random number from 1 through 4
 % whoot = vertcat(puzzles, in_order, puzzles, in_order)
 % size(A, 1) returns number of columns
-
 in_order = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 visited = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -80,4 +79,4 @@ while depth < 6
     end
     
     p1
-end
+end %while end
