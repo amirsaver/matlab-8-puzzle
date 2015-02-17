@@ -10,14 +10,14 @@ goal = 1:9;
 start_node.parent = [];
     
 % queue q = x
-queue(1,1) = start_node;
+queue = start_node;
 visited = [];
 % while !q.empty? 
 visited_index = 1;
 while ~isempty(queue)
     % pop first element off from queue
-    node = queue(1,:);
-    queue = queue(2:end,:);
+    node = queue(1);
+    queue = queue(2:end);
     
     % add state to visited
     visited(visited_index, :) = node.state;

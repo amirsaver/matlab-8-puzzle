@@ -3,7 +3,6 @@
 % node: the current node in the tree, must be of class puzzle
 function path = reconstruct_path(node)
 % total_path = current
-path = zeros(30); %preallocate a maximum of 30 zeros for possible maximum 30 depth puzzle 
 % while current in tree
 path(1) = node;
 i = 2;
@@ -15,6 +14,10 @@ while ~isempty(node.parent)
     i = i + 1;
 end
 %print total path
-path = path(path ~= 0); %remove all zeros left over from preallocation
 path = fliplr(path); %flip to get correct descent down tree from initial to goal state
+
+for i = 1:length(path)
+    disp(path(i).state)
+end
+
 end
