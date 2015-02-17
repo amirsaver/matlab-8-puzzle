@@ -7,13 +7,15 @@
 % randi(4) returns a random number from 1 through 4
 % whoot = vertcat(puzzles, in_order, puzzles, in_order)
 % size(A, 1) returns number of columns
+function pgenerator = pgenerator(max_depth)
 in_order = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 visited = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 depth = 0;
 p1 = puzzle(in_order);
-while depth < 6
+%while depth < 6
+while depth <= max_depth
     movement = randi(4);
 
     if(movement == 1)
@@ -78,5 +80,7 @@ while depth < 6
         end
     end
     
-    p1
+%     p1
 end %while end
+p1
+end %function end
