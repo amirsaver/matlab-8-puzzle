@@ -33,25 +33,26 @@ while ~isempty(queue)
         %for each possible move add to the queue if it's state has not been
         %visited
         nodeMoveLeft = moveBlankLeft(node);
-        if(~ismember(nodeMoveLeft.state, visited))
+        if(~ismember(nodeMoveLeft.state, visited, 'rows'))
+            toc
             nodeMoveLeft.parent = node;
             queue(length(queue) + 1) = nodeMoveLeft;
         end
         
         nodeMoveRight = moveBlankRight(node);
-        if(~ismember(nodeMoveRight.state, visited))
+        if(~ismember(nodeMoveRight.state, visited, 'rows'))
             nodeMoveRight.parent = node;
             queue(length(queue) + 1) = nodeMoveRight;
         end
         
         nodeMoveDown = moveBlankDown(node);
-        if(~ismember(nodeMoveDown.state, visited))
+        if(~ismember(nodeMoveDown.state, visited, 'rows'))
             nodeMoveDown.parent = node;
             queue(length(queue) + 1) = nodeMoveDown;
         end
         
         nodeMoveUp = moveBlankUp(node);
-        if(~ismember(nodeMoveUp.state, visited))
+        if(~ismember(nodeMoveUp.state, visited, 'rows'))
             nodeMoveUp.parent = node;
             queue(length(queue) + 1) = nodeMoveUp;
         end
