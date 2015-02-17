@@ -23,7 +23,7 @@ while ~isempty(queue)
     visited(visited_index, :) = node.state;
     visited_index = visited_index + 1;
     
-    if node.state == goal
+    if(isequal(node.state,goal))
         disp(reconstruct_path(node))
         toc % display time elapsed
         result = true; %%%% DEBUG %%%%
