@@ -15,7 +15,7 @@ function pgenerator = pgenerator(max_depth)
     depth = 0;
     p1 = puzzle(in_order);
 %while depth < 6
-while depth <= max_depth
+while depth < max_depth
         movement = randi(4);
 
         if(movement == 1)

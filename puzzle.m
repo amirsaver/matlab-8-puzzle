@@ -5,6 +5,7 @@ classdef puzzle
     properties
         state
         parent
+        visited
     end
     
     methods
