@@ -81,5 +81,5 @@ function pgenerator = pgenerator(max_depth)
         end
     end %while end  
 
-    p1.state
+    pgenerator = p1.state
 end %function end
