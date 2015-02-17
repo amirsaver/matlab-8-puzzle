@@ -8,9 +8,9 @@
 % size(A, 1) returns number of columns
 
 function pgenerator = pgenerator(max_depth)
-    in_order = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    in_order = int([1, 2, 3, 4, 5, 6, 7, 8, 9]);
 
-    visited = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    visited = int([1, 2, 3, 4, 5, 6, 7, 8, 9]);
 
     depth = 0;
     p1 = puzzle(in_order);
@@ -81,5 +81,5 @@ function pgenerator = pgenerator(max_depth)
         end
     end %while end  
 
-    pgenerator = p1.state
+    pgenerator = int(p1.state);
 end %function end
