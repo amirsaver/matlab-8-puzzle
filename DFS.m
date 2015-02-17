@@ -1,23 +1,17 @@
 % Depth First Search algorithm for solving an 8-puzzle.
 % Attempts to find the goal state [123456789].
-% -- arguments -- 
-% start_node: the initial state of the 8-puzzle.
-%
-% tree = {}
-% path_cost = 0
-% function DFS(G, v):
 function DFS(start_node)
-%     v.visited = true
-%     tree.add(v)
-%     path_cost++
-%     for each neighbor v to w in G.adjacentEdges(v) do
-%         if !v.visited
-%             if v = goal
-%                reconstruct_path(tree, v)
-%                exit
-%             else
-%                 DFS(G,w)
-    
+
+% procedure DFS-iterative(G,v):
+%     let S be a stack
+%     S.push(v)
+%     while S is not empty
+%           v ← S.pop() 
+%           if v is not labeled as discovered:
+%               label v as discovered
+%               for all edges from v to w in G.adjacentEdges(v) do
+%                   S.push(w)
+
 %for each possible move add to the queue if it's state has not been
 %visited
 nodeMoveLeft = moveBlankLeft(node);
