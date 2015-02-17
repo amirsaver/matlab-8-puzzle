@@ -7,7 +7,7 @@
 % randi(4) returns a random number from 1 through 4
 % size(A, 1) returns number of columns
 
-function p1 = pgenerator(max_depth)
+function pgenerator = pgenerator(max_depth)
     in_order = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
     visited = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -15,7 +15,7 @@ function p1 = pgenerator(max_depth)
     depth = 0;
     p1 = puzzle(in_order);
 
-while depth < max_depth
+    while depth < max_depth
         movement = randi(4);
 
         if(movement == 1)
