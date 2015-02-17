@@ -1,11 +1,13 @@
 classdef puzzle
-    %PUZZLE Summary of this class goes here
-    %   Detailed explanation goes here
+    %PUZZLE is an object that represents a node in a tree of possible
+    %states for an 8-puzzle.
+    %   PUZZLE has the properties state and parent. State is the current
+    %   arrangement of the tiles for the 8-puzzle. Parent is the current
+    %   node's predescessor. 
     
     properties
         state
         parent
-        visited
     end
     
     methods

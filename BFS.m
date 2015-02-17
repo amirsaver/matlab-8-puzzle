@@ -2,27 +2,63 @@
 % Attempts to find the goal state [123456789].
 % -- arguments -- 
 % start_node: the initial state of the 8-puzzle.
-% graph:
 function BFS = BFS(start_node)
+tic %start timer
+goal = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 % starting node is the initial state, it has no parent since it is the
-% 'root' and has been visitied
-start_node.visited = true;
-start_node.parent = null;
+% 'root' and has been visitied1
+start_node.parent = [];
     
-%   queue q = x
-%   current_vertex = x
-%   while !q.empty? 
-%       v = q.pop
-%         v.visited = true
-%         for each neighbor in w G.adjacentEdges(v) di
-%             if !w.visited
-%                 w.visited = true
-%                 q.push(w)
-%                 T.add((v,w))
-%                 current_vertex = w
-%                 if current_vertex = goal
-%                       reconstruct_path(T, current_vertex)
-%                       return
-end
+% queue q = x
+queue(1,1) = start_node;
+visited = [];
+% while !q.empty? 
+visited_index = 1;
+while length(queue) ~= 0
+    % pop first element off from queue
+    node = queue(1,:);
+    queue = queue(2:end,:);
+    
+    % add state to visited
+    visited(visited_index, :) = node.state;
+    visited_index = visited_index + 1;
+    
+    if node.state == goal
+        reconstruct_path(node)
+        toc % display time elapsed
+        return
+    else
+        toc %%%% DEBUG %%%%
+        %for each possible move add to the queue if it's state has not been
+        %visited
+        nodeMoveLeft = moveBlankLeft(node);
+        if(~ismember(nodeMoveLeft.state, visited))
+            nodeMoveLeft.parent = node;
+            queue(length(queue) + 1) = nodeMoveLeft;
+        end
+        
+        nodeMoveRight = moveBlankRight(node);
+        if(~ismember(nodeMoveRight.state, visited))
+            nodeMoveRight.parent = node;
+            queue(length(queue) + 1) = nodeMoveRight;
+        end
+        
+        nodeMoveDown = moveBlankDown(node);
+        if(~ismember(nodeMoveDown.state, visited))
+            nodeMoveDown.parent = node;
+            queue(length(queue) + 1) = nodeMoveDown;
+        end
+        
+        nodeMoveUp = moveBlankUp(node);
+        if(~ismember(nodeMoveUp.state, visited))
+            nodeMoveUp.parent = node;
+            queue(length(queue) + 1) = nodeMoveUp;
+        end
+        toc %%%% DEBUG %%%%
+        disp(queue) %%%% DEBUG %%%%
+    end % if end
+end % while end
+end % function ed
+
                       
                      
