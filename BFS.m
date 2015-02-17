@@ -10,12 +10,13 @@ goal = int8(1:9);
 start_node.parent = [];
     
 queue = start_node;
-visited = zeros(100,9,int8);%preallocate a 100x9 matrix of ints
+visited = [];
 visited_index = 1;
+queue_index = 1;
 while ~isempty(queue)
     % pop first element off from queue
-    node = queue(1);
-    queue = queue(2:end);
+    node = queue(queue_index);
+    queue_index = queue_index + 1;
     
     % add state to visited
     visited(visited_index, :) = node.state;
