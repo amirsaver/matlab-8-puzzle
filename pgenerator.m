@@ -1,6 +1,4 @@
-function output = pgenerator()
-
-
+function output = pgenerator(depthNo)
     % The numbers 1, 2, 3, and 4 correspond to directions.
     % 1 corresponds to UP
     % 2 corresponds to DOWN
@@ -18,7 +16,7 @@ function output = pgenerator()
     depth = 0;
     p1 = puzzle(in_order);
 
-    while depth < 6
+    while depth < depthNo
         movement = randi(4);
 
         if(movement == 1)
