@@ -1,12 +1,12 @@
-    % The numbers 1, 2, 3, and 4 correspond to directions.
-    % 1 corresponds to UP
-    % 2 corresponds to DOWN
-    % 3 corresponds to LEFT
-    % 4 corresponds to RIGHT
+% The numbers 1, 2, 3, and 4 correspond to directions.
+% 1 corresponds to UP
+% 2 corresponds to DOWN
+% 3 corresponds to LEFT
+% 4 corresponds to RIGHT
 
-    % randi(4) returns a random number from 1 through 4
-    % whoot = vertcat(puzzles, in_order, puzzles, in_order)
-    % size(A, 1) returns number of columns
+% randi(4) returns a random number from 1 through 4
+% size(A, 1) returns number of columns
+
 function pgenerator = pgenerator(max_depth)
     in_order = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -14,8 +14,8 @@ function pgenerator = pgenerator(max_depth)
 
     depth = 0;
     p1 = puzzle(in_order);
-%while depth < 6
-while depth <= max_depth
+
+    while depth < max_depth
         movement = randi(4);
 
         if(movement == 1)
@@ -79,6 +79,7 @@ while depth <= max_depth
                 depth = depth + 1;
             end
         end
-end %while end  
+    end %while end  
+
     p1.state
 end %function end
