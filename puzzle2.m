@@ -17,7 +17,7 @@ classdef puzzle2
         function obj = puzzle2(numbers)
             if(nargin > 0)
                 obj.state = numbers;
-                obj.parent = NaN;
+                obj.parent = 0;
                 obj.depth = 0;
                 obj.g_score = 0;
                 obj.f_score = 0;
@@ -42,7 +42,7 @@ classdef puzzle2
             
             if(k + 3 <= 9)
                 str(k) = str(k+3);
-                str(k - 3) = '9';
+                str(k + 3) = '9';
             end
             
             obj.state = str2num(str);
@@ -72,6 +72,5 @@ classdef puzzle2
             obj.state = str2num(str);
         end
     end % end methods
-    
 end
 
