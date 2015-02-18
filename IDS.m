@@ -1,4 +1,4 @@
-% Iterative Depth First Search algorithm for solving an 8-puzzle.
+% Iterative Deeping Search algorithm for solving an 8-puzzle.
 % Attempts to find the goal state [123456789].
 % --- arguments ---
 % starting_node : the initial puzzle state from which the goal state should
@@ -10,9 +10,9 @@ stack = starting_node;
 stack_index = 1;
 
 starting_node.depth = 0;
-for i = 1:30% depth shouldn't go past 30 due to generation of starting states
+for i = 1:29% depth shouldn't go past 30 due to generation of starting states
     limit = i;
-    successful = DLS(starting_node, limit);
+    successful = DLS(starting_node, goal, limit);
     if(successful)
         toc %display elapsed time
         return

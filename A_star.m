@@ -1,5 +1,5 @@
 function A_star(starting_node)
-    goal_state = (1:9)
+    goal_state = int8(1:9);
     closed(1) = puzzle; closed(1) = []; % initialize empty
     open(1) = puzzle; open(1) = []; % initialize empty
 
@@ -7,7 +7,7 @@ function A_star(starting_node)
     starting_node.f_score = starting_node.g_score + heuristic(starting_node.state);
     open(1) = starting_node;
 
-    while length(open) > 0 % while openset is not empty
+    while ~isempty(open) % while openset is not empty
         current = open(1); % current = node in open with lowest f_score
         current_index = 1;
     
@@ -25,14 +25,6 @@ function A_star(starting_node)
         
         open(current_index) = []; % remove current from openset
         closed(length(closed) + 1) = current; % add current to closedset
-        
-        
-        
-        
-        
-        
-        
-        
         
         neighbors(1) = puzzle();
         neighbors(1,:) = []; % initialize empty
