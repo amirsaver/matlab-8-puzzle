@@ -1,6 +1,6 @@
-% Reconstruct the path from the given node to the root of the tree
+% Reconstruct and display the path from the given node to the root of the tree.
 % -- arguments --
-% node: the current node in the tree, must be of class puzzle
+% node: the current node in the tree, must be of class puzzle.
 function path = reconstruct_path(node)
 % total_path = current
 % while current in tree

@@ -2,6 +2,9 @@
 % Attempts to find the goal state [123456789].
 % Here we make the assumption that any goal state can be reached before the
 % 81st depth, so we stop looking down a branch past the 81st level. 
+% --- arguments ---
+% starting_node : the initial puzzle state from which the goal state
+% should be achieved. 
 function DFS(starting_node)
 tic % start timer
 goal = int8(1:9);
