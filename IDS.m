@@ -6,14 +6,14 @@
 function IDS(starting_node)
 tic %start timer
 goal = int8(1:9);
-stack = starting_node;
-stack_index = 1;
-
 starting_node.depth = 0;
+setGlobalStartStack(starting_node);
+
 for i = 1:29% depth shouldn't go past 30 due to generation of starting states
     limit = i;
-    successful = DLS(starting_node, goal, limit);
+    successful = DLS(goal, limit);
     if(successful)
+        clear global start_stack;
         toc %display elapsed time
         return
     end
@@ -24,10 +24,12 @@ end
 % of the tree
 % goal state : the goal state that should be reached 
 % depth_limit : the maximum depth to be reached 
-function success = DLS(starting_node, goal_state, depth_limit)
-visited = zeros(100,9,'int8');
-stack = starting_node;
-stack_index = 1;
+function success = DLS(goal_state, depth_limit)
+visited = zeros(1,9,'int8');
+stack = getGlobalStartStack;
+stack_index = length(stack);
+unexpanded_nodes = stack;
+unexpanded_nodes_index = 1;
 success = 0;
 
 while stack_index > 0
@@ -77,6 +79,23 @@ while stack_index > 0
             stack_index = stack_index + 1;
             stack(stack_index) = nodeMoveUp;
         end
-    end 
+    else
+        unexpanded_nodes(unexpanded_nodes_index) = node;
+        unexpanded_nodes_index = unexpanded_nodes_index + 1;
+    end
 end
+setGlobalStartStack(unexpanded_nodes);
+end
+
+% --- Global Variable ---
+% start_stack : stores the nodes of the tree that were'nt
+% expanded in the last interation of the IDS algorithm.
+function r  = getGlobalStartStack
+global start_stack
+r = start_stack;
+end
+
+function setGlobalStartStack(val)
+global start_stack
+start_stack = val;
 end
