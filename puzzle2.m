@@ -14,10 +14,13 @@ classdef puzzle2
     end
     
     methods
-        function obj = puzzle(array)
+        function obj = puzzle2(numbers)
             if(nargin > 0)
-                obj.state = array;
+                obj.state = numbers;
+                obj.parent = NaN;
                 obj.depth = 0;
+                obj.g_score = 0;
+                obj.f_score = 0;
             end
         end
         
