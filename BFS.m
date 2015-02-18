@@ -13,14 +13,16 @@ queue = start_node;
 %visited is a matrix of column arrays where each column is a state that has
 %been seen before
 visited = zeros(100,9, 'int8');
+visited_index = 1;
 queue_index = 1;
 while queue_index <= length(queue)
     % pop first element off from queue
     node = queue(queue_index);
     queue_index = queue_index + 1;
 
-    visited(length(visited) + 1, :) = node.state;
- 
+    visited(visited_index, :) = node.state;
+    visited_index = visited_index + 1;
+    
     if(isequal(node.state,goal))
         reconstruct_path(node);
         toc % display time elapsed

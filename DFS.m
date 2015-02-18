@@ -13,14 +13,16 @@ stack_index = 1;
 starting_node.depth = 0;
 
 visited = zeros(100,9,'int8');
+visited_index = 1;
 
 while stack_index > 0
-    % pop off the first node from the stack
+    % pop off thef first node from the stack
     node = stack(stack_index);
     stack_index = stack_index - 1;
     
     %set node as visited
-    visited(length(visited) + 1, :) = node.state;
+    visited(visited_index, :) = node.state;
+    visited_index = visited_index + 1;
     
     %check if current node is goal state
     if(isequal(node.state, goal))

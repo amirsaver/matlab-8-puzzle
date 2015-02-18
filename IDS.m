@@ -88,8 +88,8 @@ setGlobalStartStack(unexpanded_nodes);
 end
 
 % --- Global Variable ---
-% start_stack : stores the nodes of the tree that were'nt
-% expanded in the last interation of the IDS algorithm.
+% start_stack : stores the nodes of the tree that weren't expanded in the 
+% last interation of the IDS algorithm.
 function r  = getGlobalStartStack
 global start_stack
 r = start_stack;
