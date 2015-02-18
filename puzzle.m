@@ -8,6 +8,7 @@ classdef puzzle
     properties
         state
         parent
+        depth
         g_score
         f_score
     end
@@ -16,6 +17,7 @@ classdef puzzle
         function obj = puzzle(array)
             if(nargin > 0)
                 obj.state = array;
+                obj.depth = 0;
             end
         end
         
