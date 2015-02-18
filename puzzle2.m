@@ -17,7 +17,6 @@ classdef puzzle2
         function obj = puzzle2(numbers)
             if(nargin > 0)
                 obj.state = numbers;
-                obj.parent = 0;
                 obj.depth = 0;
                 obj.g_score = 0;
                 obj.f_score = 0;

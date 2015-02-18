@@ -8,7 +8,7 @@ function path = reconstruct_path2(node)
     path(1) = node;
     i = 2;
     
-    while node.parent ~= 0
+    while ~isempty(node.parent)
         % current = current.parent
         node = node.parent;
         % total_path.append(current)

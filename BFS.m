@@ -4,7 +4,7 @@
 % start_node: the initial state of the 8-puzzle.
 function BFS(start_node)
 tic %start timer
-goal = int8(1:9);
+goal = 123456789;
 % starting node is the initial state, it has no parent since it is the
 % 'root' and has been visitied
 start_node.parent = [];
@@ -12,44 +12,42 @@ start_node.parent = [];
 queue = start_node;
 %visited is a matrix of column arrays where each column is a state that has
 %been seen before
-visited = zeros(100,9, 'int8');
-visited_index = 1;
+visited = [];
 queue_index = 1;
 while queue_index <= length(queue)
     % pop first element off from queue
     node = queue(queue_index);
     queue_index = queue_index + 1;
 
-    visited(visited_index, :) = node.state;
-    visited_index = visited_index + 1;
+    visited(length(visited) + 1) = node.state;
     
-    if(isequal(node.state,goal))
-        reconstruct_path(node);
+    if(node.state == goal)
+        reconstruct_path2(node);
         toc % display time elapsed
         return
     else
         %for each possible move add to the queue if it's state has not been
         %visited
         nodeMoveLeft = moveBlankLeft(node);
-        if(~ismember(nodeMoveLeft.state, visited, 'rows'))
+        if(~ismember(nodeMoveLeft.state, visited))
             nodeMoveLeft.parent = node;
             queue(length(queue) + 1) = nodeMoveLeft;
         end
         
         nodeMoveRight = moveBlankRight(node);
-        if(~ismember(nodeMoveRight.state, visited, 'rows'))
+        if(~ismember(nodeMoveRight.state, visited))
             nodeMoveRight.parent = node;
             queue(length(queue) + 1) = nodeMoveRight;
         end
         
         nodeMoveDown = moveBlankDown(node);
-        if(~ismember(nodeMoveDown.state, visited, 'rows'))
+        if(~ismember(nodeMoveDown.state, visited))
             nodeMoveDown.parent = node;
             queue(length(queue) + 1) = nodeMoveDown;
         end
         
         nodeMoveUp = moveBlankUp(node);
-        if(~ismember(nodeMoveUp.state, visited, 'rows'))
+        if(~ismember(nodeMoveUp.state, visited))
             nodeMoveUp.parent = node;
             queue(length(queue) + 1) = nodeMoveUp;
         end
