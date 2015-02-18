@@ -10,18 +10,17 @@ goal = int8(1:9);
 start_node.parent = [];
     
 queue = start_node;
-visited = [];
-visited_index = 1;
+%visited is a matrix of column arrays where each column is a state that has
+%been seen before
+visited = zeros(100,9, 'int8');
 queue_index = 1;
-while ~isempty(queue)
+while queue_index <= length(queue)
     % pop first element off from queue
     node = queue(queue_index);
     queue_index = queue_index + 1;
-    
-    % add state to visited
-    visited(visited_index, :) = node.state;
-    visited_index = visited_index + 1;
-    
+
+    visited(length(visited) + 1, :) = node.state;
+ 
     if(isequal(node.state,goal))
         reconstruct_path(node);
         toc % display time elapsed
