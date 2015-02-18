@@ -12,7 +12,7 @@ function A_star(starting_node)
         current_index = 1;
     
         for i=1:length(open)
-            if open(i).f_score > current.f_score
+            if open(i).f_score < current.f_score
                 current = open(i);
                 current_index = i;
             end
