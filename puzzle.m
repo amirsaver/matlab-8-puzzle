@@ -8,6 +8,8 @@ classdef puzzle
     properties
         state
         parent
+        g_score
+        f_score
     end
     
     methods
