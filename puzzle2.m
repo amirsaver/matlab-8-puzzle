@@ -25,63 +25,51 @@ classdef puzzle2
         end
         
         function obj = moveBlankUp(obj)
-            for i = 1:length(obj.state),
-                if(obj.state(i) == 9)
-                    blankPosition = i;
-                    break;
-                end
+            str = int2str(obj.state); % convert to string first
+            k = strfind(str, '9'); % index where the blank is
+            
+            if(k - 3 >= 1)
+                str(k) = str(k-3);
+                str(k - 3) = '9';
             end
             
-            if(blankPosition - 3 >= 1)
-                temp = obj.state(blankPosition - 3);
-                obj.state(blankPosition) = temp;
-                obj.state(blankPosition - 3) = 9;
-            end
+            obj.state = str2num(str);
         end
         
         function obj = moveBlankDown(obj)
-            for i = 1:length(obj.state),
-                if(obj.state(i) == 9)
-                    blankPosition = i;
-                    break;
-                end
+            str = int2str(obj.state); % convert to string first
+            k = strfind(str, '9'); % index where the blank is
+            
+            if(k + 3 <= 9)
+                str(k) = str(k+3);
+                str(k - 3) = '9';
             end
             
-            if(blankPosition + 3 <= 9)
-                temp = obj.state(blankPosition + 3);
-                obj.state(blankPosition) = temp;
-                obj.state(blankPosition + 3) = 9;
-            end
+            obj.state = str2num(str);
         end
         
         function obj = moveBlankLeft(obj)
-            for i = 1:length(obj.state),
-                if(obj.state(i) == 9)
-                    blankPosition = i;
-                    break;
-                end
+            str = int2str(obj.state); % convert to string first
+            k = strfind(str, '9'); % index where the blank is
+            
+            if(k ~= 1 && k ~= 4 && k ~= 7)
+                str(k) = str(k - 1);
+                str(k - 1) = '9';
             end
             
-            if(blankPosition ~= 1 && blankPosition ~= 4 && blankPosition ~= 7)
-                temp = obj.state(blankPosition - 1);
-                obj.state(blankPosition) = temp;
-                obj.state(blankPosition - 1) = 9;
-            end
+            obj.state = str2num(str);
         end
 
         function obj = moveBlankRight(obj)
-            for i = 1:length(obj.state),
-                if(obj.state(i) == 9)
-                    blankPosition = i;
-                    break;
-                end
+            str = int2str(obj.state); % convert to string first
+            k = strfind(str, '9'); % index where the blank is
+            
+            if(mod(k,3) ~= 0)
+                str(k) = str(k + 1);
+                str(k + 1) = '9';
             end
             
-            if(blankPosition ~= 3 && blankPosition ~= 6 && blankPosition ~= 9)
-                temp = obj.state(blankPosition + 1);
-                obj.state(blankPosition) = temp;
-                obj.state(blankPosition + 1) = 9;
-            end
+            obj.state = str2num(str);
         end
     end % end methods
     
