@@ -30,7 +30,7 @@ function elapsed_time = DFS(starting_node)
             % for each possible move push onto stack if it's state has not
             % been visited
             nodeMoveLeft = moveBlankLeft(node);
-            if(~ismember(nodeMoveLeft.state, visited))
+            if(nodeMoveLeft.state ~= node.state || ~ismember(nodeMoveLeft.state, visited))
                 nodeMoveLeft.parent = node;
                 nodeMoveLeft.depth = node.depth + 1;
                 stack_index = stack_index + 1;
@@ -38,7 +38,7 @@ function elapsed_time = DFS(starting_node)
             end
 
             nodeMoveRight = moveBlankRight(node);
-            if(~ismember(nodeMoveRight.state, visited))
+            if(nodeMoveRight.state ~= node.state || ~ismember(nodeMoveRight.state, visited))
                 nodeMoveRight.parent = node;
                 nodeMoveRight.depth = node.depth + 1;
                 stack_index = stack_index + 1;
@@ -46,7 +46,7 @@ function elapsed_time = DFS(starting_node)
             end
 
             nodeMoveDown = moveBlankDown(node);
-            if(~ismember(nodeMoveDown.state, visited))
+            if(nodeMoveDown.state ~= node.state || ~ismember(nodeMoveDown.state, visited))
                 nodeMoveDown.parent = node;
                 nodeMoveDown.depth = node.depth + 1;
                 stack_index = stack_index + 1;
@@ -54,7 +54,7 @@ function elapsed_time = DFS(starting_node)
             end
 
             nodeMoveUp = moveBlankUp(node);
-            if(~ismember(nodeMoveUp.state, visited))
+            if(nodeMoveUp.state ~= node.state || ~ismember(nodeMoveUp.state, visited))
                 nodeMoveUp.parent = node;            
                 nodeMoveUp.depth = node.depth + 1;
                 stack_index = stack_index + 1;
