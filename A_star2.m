@@ -91,16 +91,18 @@ function A_star2(starting_node)
         
         % for each neighbor
         for i=1:length(neighbors)
+            ineighbor = neighbors(i);
             inOpen = false;
             for j=1:length(open)
-                if isequal(open(j), neighbors(i))
+                jneighbor = open(j);
+                if ineighbor.state == jneighbor.state
                     inOpen = true;
                 end
             end
             
             if inOpen == false
-                neighbor_state = neighbors(i).state;
-                neighbors(i).f_score = neighbors(i).g_score + heuristic(neighbors(i).state);
+                neighbor = neighbors(i);
+                neighbors(i).f_score = neighbor.g_score + heuristic(neighbor.state);
                 open(length(open) + 1) = neighbors(i);
             end
         end        
