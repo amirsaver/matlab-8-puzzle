@@ -2,7 +2,7 @@
 % Attempts to find the goal state [123456789].
 % -- arguments -- 
 % start_node: the initial state of the 8-puzzle.
-function BFS(start_node)
+function elapsed_time = BFS(start_node)
 tic %start timer
 goal = 123456789;
 % starting node is the initial state, it has no parent since it is the
@@ -23,7 +23,7 @@ while queue_index <= length(queue)
     
     if(node.state == goal)
         reconstruct_path2(node);
-        toc % display time elapsed
+        elapsed_time = toc % display time elapsed
         return
     else
         %for each possible move add to the queue if it's state has not been

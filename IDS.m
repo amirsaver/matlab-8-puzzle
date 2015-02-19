@@ -3,7 +3,7 @@
 % --- arguments ---
 % starting_node : the initial puzzle state from which the goal state should
 % be found
-function IDS(starting_node)
+function elapsed_time = IDS(starting_node)
 tic %start timer
 goal = 123456789;
 starting_node.depth = 0;
@@ -14,7 +14,7 @@ for i = 1:29% depth shouldn't go past 30 due to generation of starting states
     successful = DLS(goal, limit);
     if(successful)
         clear global start_stack;
-        toc %display elapsed time
+        elapsed_time = toc %display elapsed time
         return
     end
 end

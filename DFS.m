@@ -6,7 +6,7 @@
 % starting_node: the initial puzzle state from which the goal state
 % should be achieved.
 
-function DFS(starting_node)
+function elapsed_time = DFS(starting_node)
     tic % start timer
     goal = 123456789;
     stack = starting_node;
@@ -24,7 +24,7 @@ function DFS(starting_node)
         % check if current node is goal state
         if(node.state == goal)
             reconstruct_path2(node);
-            toc %display elapsed time
+            elapsed_time = toc %display elapsed time
             return
         elseif(node.depth <= 80) % limit the depth DFS can reach here
             % for each possible move push onto stack if it's state has not
