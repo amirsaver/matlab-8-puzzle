@@ -1,17 +1,17 @@
-function elapsed_time = A_star(starting_node)
+function elasped_time = A_star(starting_node)
     tic % start timer
-    goal_state = int8(1:9);
-    closed(1) = puzzle; closed(1) = []; % initialize empty
-    open(1) = puzzle; open(1) = []; % initialize empty
+    goal_state = 123456789;
+    closed(1) = puzzle; closed(1) = []; % initialize empty puzzle array
+    open(1) = puzzle; open(1) = []; % initialize empty puzzle array
 
-    starting_node.g_score = 0;
     starting_node.f_score = starting_node.g_score + heuristic(starting_node.state);
-    open(1) = starting_node;
+    open = starting_node;
 
     while ~isempty(open) % while openset is not empty
-        current = open(1); % current = node in open with lowest f_score
+        current = open(1);
         current_index = 1;
-    
+
+        % set current as the node with the lowest f_score
         for i=1:length(open)
             if open(i).f_score < current.f_score
                 current = open(i);
@@ -19,8 +19,8 @@ function elapsed_time = A_star(starting_node)
             end
         end
         
-        if isequal(current.state, goal_state)
-            reconstruct_path(current);
+        if current.state == goal_state
+            reconstruct_path2(current);            
             elasped_time = toc %show elapsed time
             return
         end
@@ -28,8 +28,8 @@ function elapsed_time = A_star(starting_node)
         open(current_index) = []; % remove current from openset
         closed(length(closed) + 1) = current; % add current to closedset
         
-        neighbors(1) = puzzle();
-        neighbors(1,:) = []; % initialize empty
+        % initialize empty puzzle array
+        neighbors(1) = puzzle2; neighbors(1) = [];
         
         % move blank left
         validNeighbor = true;
@@ -93,15 +93,17 @@ function elapsed_time = A_star(starting_node)
         
         % for each neighbor
         for i=1:length(neighbors)
+            ineighbor = neighbors(i);
             inOpen = false;
             for j=1:length(open)
-                if isequal(open(j), neighbors(i))
+                if ineighbor.state == open(j).state
                     inOpen = true;
                 end
             end
             
             if inOpen == false
-                neighbors(i).f_score = neighbors(i).g_score + heuristic(neighbors(i).state);
+                neighbor = neighbors(i);
+                neighbors(i).f_score = neighbor.g_score + heuristic(neighbor.state);
                 open(length(open) + 1) = neighbors(i);
             end
         end        
