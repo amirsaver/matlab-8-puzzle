@@ -13,7 +13,7 @@ function pgenerator = pgenerator(max_depth)
     visited = in_order;
 
     depth = 0;
-    p1 = puzzle2(in_order);
+    p1 = puzzle(in_order);
 
     while depth < max_depth
         movement = randi(4);
