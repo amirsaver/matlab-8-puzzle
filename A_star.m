@@ -20,7 +20,7 @@ function elasped_time = A_star(starting_node)
         end
         
         if current.state == goal_state
-            reconstruct_path2(current);            
+            reconstruct_path(current);            
             elasped_time = toc %show elapsed time
             return
         end

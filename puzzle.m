@@ -14,7 +14,7 @@ classdef puzzle
     end
     
     methods
-        function obj = puzzle2(numbers)
+        function obj = puzzle(numbers)
             if(nargin > 0)
                 obj.state = numbers;
                 obj.depth = 0;

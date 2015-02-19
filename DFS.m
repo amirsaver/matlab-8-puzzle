@@ -23,7 +23,7 @@ function elapsed_time = DFS(starting_node)
 
         % check if current node is goal state
         if(node.state == goal)
-            reconstruct_path2(node);
+            reconstruct_path(node);
             elapsed_time = toc %display elapsed time
             return
         elseif(node.depth <= 80) % limit the depth DFS can reach here

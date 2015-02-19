@@ -22,7 +22,7 @@ while queue_index <= length(queue)
     visited(length(visited) + 1) = node.state;
     
     if(node.state == goal)
-        reconstruct_path2(node);
+        reconstruct_path(node);
         elapsed_time = toc % display time elapsed
         return
     else
