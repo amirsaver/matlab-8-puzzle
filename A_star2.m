@@ -96,8 +96,8 @@ function elasped_time = A_star2(starting_node)
             ineighbor = neighbors(i);
             inOpen = false;
             for j=1:length(open)
-                jneighbor = open(j);
-                if ineighbor.state == jneighbor.state
+                % jneighbor = open(j);
+                if ineighbor.state == open(j).state
                     inOpen = true;
                 end
             end
