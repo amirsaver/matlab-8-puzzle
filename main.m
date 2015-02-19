@@ -20,12 +20,16 @@ load('100-puzzles.mat');
 for index = 1:100
     current_initial_state = puzzle(puzzles(index)); 
     disp('--- BFS ---')
+    disp(index)
     bfs_running_times(index) = BFS(current_initial_state);
     disp('--- DFS ---')
+    disp(index)
     dfs_running_times(index) = DFS(current_initial_state);
     disp('--- IDS ---')
+    disp(index)
     ids_running_times(index) = IDS(current_initial_state);
     disp('---  A* ---')
+    disp(index)
     a_star_running_times(index) = A_star(current_initial_state);
 end
 
