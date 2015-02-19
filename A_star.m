@@ -29,7 +29,7 @@ function elasped_time = A_star(starting_node)
         closed(length(closed) + 1) = current; % add current to closedset
         
         % initialize empty puzzle array
-        neighbors(1) = puzzle2; neighbors(1) = [];
+        neighbors(1) = puzzle; neighbors(1) = [];
         
         % move blank left
         validNeighbor = true;
