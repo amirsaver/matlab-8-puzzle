@@ -1,7 +1,8 @@
 # Artificial Intelligence 8-puzzle MATLAB project
 
 ## Authors: 
-Olivia Whitman (.68) <br>
+Olivia Whitman (.68) 
+<br>
 Jae Lee (.4810)
 
 ## Randomly generated states:
@@ -9,9 +10,11 @@ The 100 states were generated using the pgenerator function which accepts an int
 The value passed to the function indicates the number of random moves to make (avoiding previously visited states) starting with an initial state that is the goal.
  - Due to this random movement it is not guarenteed that the returned state is the same depth as the number of moves taken to get there.
  - Since we begin with the goal state and randomly move the blank space around it is safe to assume that any generated state exists in the set of solvable initial states for the 8-puzzle.
-<br>
-Note that the generated state is an integer where each digit is a tile number ordered in the arrangement of the tiles.
+
+#### Note:
+The generated state is an integer where each digit is a tile number where the ordering is the current arrangement of the tiles.
 In addition, the digit ```9``` is used to denote the blank space.
+Thus the goal state can be stated as ```123456789```.
 
 ## Running the program:
 
@@ -21,7 +24,7 @@ To run an algorithm individually, begin by taking an initial state and creating 
 Then feed this puzzle object to your desired algorithm.
 This method will print out the running time and path to goal state from the initial state.
 <br>
-Below is an example of running solely BFS for an initial state of 123465789.
+Below is an example of running solely BFS for an initial state of ```123465789```.
 <br>
 ``` 
 initial_state = puzzle(123465789);
