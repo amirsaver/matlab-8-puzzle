@@ -41,7 +41,7 @@ while stack_index > 0
     visited(length(visited) + 1) = node.state;
     
     if(node.state == goal_state)
-        reconstruct_path2(node);
+        reconstruct_path(node);
         success = 1;
         return
      elseif(node.depth <= depth_limit)  %limit the depth DFS can reach here
