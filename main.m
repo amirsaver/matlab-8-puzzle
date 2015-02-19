@@ -10,15 +10,15 @@
 % clear workspace and command window
 clear;
 clc;
-
+% preallocate running time arrays for speed
 bfs_running_times = zeros(1,100);
 dfs_running_times = zeros(1,100);
 ids_running_times = zeros(1,100);
 a_star_running_times = zeros(1,100);
-
-initial_states = load('100-puzzles.mat'); 
+% load the 100 randomly generated states
+load('100-puzzles.mat'); 
 for index = 1:100
-    current_initial_state = puzzle(initial_states(index)); 
+    current_initial_state = puzzle(puzzles(index)); 
     disp('--- BFS ---')
     bfs_running_times(index) = BFS(current_initial_state);
     disp('--- DFS ---')
