@@ -13,7 +13,6 @@ function DFS2(starting_node)
     stack_index = 1;
 
     visited = [];
-
     while stack_index > 0
         % pop off the first node from the stack
         node = stack(stack_index);
