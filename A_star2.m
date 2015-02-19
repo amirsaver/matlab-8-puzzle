@@ -1,4 +1,5 @@
-function A_star2(starting_node)
+function elasped_time = A_star2(starting_node)
+    tic % start timer
     goal_state = 123456789;
     closed(1) = puzzle; closed(1) = []; % initialize empty puzzle array
     open(1) = puzzle; open(1) = []; % initialize empty puzzle array
@@ -19,7 +20,8 @@ function A_star2(starting_node)
         end
         
         if current.state == goal_state
-            reconstruct_path2(current);
+            reconstruct_path2(current);            
+            elasped_time = toc %show elapsed time
             return
         end
         
