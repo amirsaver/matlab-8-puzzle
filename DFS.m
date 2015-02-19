@@ -6,7 +6,7 @@
 % starting_node: the initial puzzle state from which the goal state
 % should be achieved.
 
-function DFS2(starting_node)
+function DFS(starting_node)
     tic % start timer
     goal = 123456789;
     stack = starting_node;
