@@ -40,8 +40,8 @@ title('BFS running time distribution')
 ylabel('count')
 xlabel('running time (sec)')
 
-sprintf('Mean of BFS running times: %.2f', mean(bfs_running_times));
-sprintf('Variance of BFS running times: %.2f', var(bfs_running_times));
+sprintf('Mean of BFS running times: %.2f', mean(bfs_running_times))
+sprintf('Variance of BFS running times: %.2f', var(bfs_running_times))
 
 subplot(2,2,2)
 histogram(dfs_running_times)
@@ -49,8 +49,8 @@ title('DFS running time distribution')
 ylabel('count')
 xlabel('running time (sec)')
 
-sprintf('Mean of DFS running times: %.2f', mean(dfs_running_times));
-sprintf('Variance of DFS running times: %.2f', var(dfs_running_times));
+sprintf('Mean of DFS running times: %.2f', mean(dfs_running_times))
+sprintf('Variance of DFS running times: %.2f', var(dfs_running_times))
 
 subplot(2,2,3)
 histogram(ids_running_times)
@@ -58,8 +58,8 @@ title('IDS running time distribution')
 ylabel('count')
 xlabel('running time (sec)')
 
-sprintf('Mean of IDS running times: %.2f', mean(ids_running_times));
-sprintf('Variance of IDS running times: %.2f', var(ids_running_times));
+sprintf('Mean of IDS running times: %.2f', mean(ids_running_times))
+sprintf('Variance of IDS running times: %.2f', var(ids_running_times))
 
 subplot(2,2,4)
 histogram(a_star_running_times)
@@ -67,8 +67,8 @@ title('A* running time distribution')
 ylabel('count')
 xlabel('running time (sec)')
 
-sprintf('Mean of A* running times: %.2f', mean(a_star_running_times));
-sprintf('Variance of A* running times: %.2f', var(a_star_running_times));
+sprintf('Mean of A* running times: %.2f', mean(a_star_running_times))
+sprintf('Variance of A* running times: %.2f', var(a_star_running_times))
 
 disp('--- END ---')
 
